@@ -5,6 +5,7 @@ Considerações:
 3. Os serviços foram criados na mesma classe apenas para demonstração, sendo a maneira correta em RestControllers diferentes.
  para manter o código coesa.
 4. Adicionei o Swagger
+5. Foram feitas apenas algumas tratativas de validação de dados dos requests
 
 
 JSONs de exemplo para teste:
