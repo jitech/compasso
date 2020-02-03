@@ -67,7 +67,7 @@ public class StartApplication {
 	@RequestMapping(value = "/city/save", method = RequestMethod.PUT)
 	public Object saveCity(@Valid @RequestBody(required = true) CityRequest cityRequest) {		
 		try {
-				return ResponseEntity.status(HttpStatus.CREATED).body(this.cityService.save(new City(cityRequest.getName(), cityRequest.getUf())));
+				return ResponseEntity.status(HttpStatus.OK).body(this.cityService.save(new City(cityRequest.getName(), cityRequest.getUf())));
 				
 		}catch(DataIntegrityViolationException ex) {
 			ex.printStackTrace();
@@ -106,7 +106,7 @@ public class StartApplication {
 	public Object saveCustomer(@Valid @RequestBody(required = true) CustomerRequest customerRequest) {		
 		try {
 			
-			return ResponseEntity.status(HttpStatus.CREATED).body(this.customerService.save(new Customer(customerRequest.getName(),
+			return ResponseEntity.status(HttpStatus.OK).body(this.customerService.save(new Customer(customerRequest.getName(),
 					GenderEnum.valueOf(customerRequest.getGender()), customerRequest.getDateOfBirth(),
 					customerRequest.getAge(), cityService.findById(customerRequest.getCity()))));
 			
