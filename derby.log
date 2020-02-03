@@ -1,6 +1,6 @@
 ----------------------------------------------------------------
-Mon Feb 03 14:30:41 GMT-03:00 2020:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0170-0c1a-a9cc-000012bdaad0 
+Mon Feb 03 14:46:40 GMT-03:00 2020:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0170-0c29-5093-0000199be660 
 on database directory C:\Users\esc_jmelo\workspace-pessoal\compasso\mydb with class loader sun.misc.Launcher$AppClassLoader@18b4aac2 
 Loaded from file:/C:/Users/esc_jmelo/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
 java.vendor=Oracle Corporation

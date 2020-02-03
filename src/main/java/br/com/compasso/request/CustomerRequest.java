@@ -4,6 +4,7 @@ import java.util.Date;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 public class CustomerRequest {
 
@@ -17,15 +18,13 @@ public class CustomerRequest {
 	@NotBlank(message = "Gender may not be blank")
 	private String gender;
 	
-	@NotEmpty(message = "Date of Birth may not be empty")
-	@NotBlank(message = "Date of Birth may not be blank")
+	@NotNull(message = "Date of Birth may not be null")
 	private Date dateOfBirth;
 	
-	@NotEmpty(message = "Age may not be empty")
-	@NotBlank(message = "Age may not be blank")
+	@NotNull(message = "Age may not be null")
 	private int age;
 	
-	@NotBlank(message = "City may not be blank")
+	@NotNull(message = "City may not be null")
 	private Long city;
 	
 	/**
