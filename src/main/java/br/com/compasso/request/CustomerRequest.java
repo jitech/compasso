@@ -25,7 +25,6 @@ public class CustomerRequest {
 	@NotBlank(message = "Age may not be blank")
 	private int age;
 	
-	@NotEmpty(message = "City may not be empty")
 	@NotBlank(message = "City may not be blank")
 	private Long city;
 	

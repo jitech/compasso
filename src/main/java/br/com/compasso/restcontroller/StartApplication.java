@@ -67,7 +67,7 @@ public class StartApplication {
 	@RequestMapping(value = "/city/save", method = RequestMethod.PUT)
 	public Object saveCity(@Valid @RequestBody(required = true) CityRequest cityRequest) {		
 		try {
-				return this.cityService.save(new City(cityRequest.getName(), cityRequest.getUf()));
+				return ResponseEntity.status(HttpStatus.CREATED).body(this.cityService.save(new City(cityRequest.getName(), cityRequest.getUf())));
 				
 		}catch(DataIntegrityViolationException ex) {
 			ex.printStackTrace();
@@ -82,7 +82,7 @@ public class StartApplication {
 	@RequestMapping(value = "/city/find/name", method = RequestMethod.GET)
 	public Object findCityByName(@RequestParam(name = "name", required = true) String name) {			
 		try {
-				return this.cityService.findByName(name);
+				return ResponseEntity.status(HttpStatus.OK).body(this.cityService.findByName(name));
 				
 		}catch(Exception ex) {
 			ex.printStackTrace();
@@ -93,7 +93,7 @@ public class StartApplication {
 	@RequestMapping(value = "/city/find/uf", method = RequestMethod.GET)
 	public Object findCityByUf(@RequestParam(name = "uf", required = true) String uf) {			
 		try {
-				return this.cityService.findByUf(uf);	
+				return ResponseEntity.status(HttpStatus.OK).body(this.cityService.findByUf(uf));
 				
 		}catch(Exception ex) {
 			ex.printStackTrace();
@@ -105,9 +105,10 @@ public class StartApplication {
 	@RequestMapping(value = "/customer/save", method = RequestMethod.PUT)
 	public Object saveCustomer(@Valid @RequestBody(required = true) CustomerRequest customerRequest) {		
 		try {
-			return this.customerService.save(new Customer(customerRequest.getName(),
+			
+			return ResponseEntity.status(HttpStatus.CREATED).body(this.customerService.save(new Customer(customerRequest.getName(),
 					GenderEnum.valueOf(customerRequest.getGender()), customerRequest.getDateOfBirth(),
-					customerRequest.getAge(), cityService.findById(customerRequest.getCity())));
+					customerRequest.getAge(), cityService.findById(customerRequest.getCity()))));
 			
 		}catch(Exception ex) {
 			ex.printStackTrace();
@@ -118,7 +119,7 @@ public class StartApplication {
 	@RequestMapping(value = "/customer/find/name", method = RequestMethod.GET)
 	public Object findCustomerByName(@RequestParam(name = "name", required = true) String name) {			
 		try {
-				return this.customerService.findByName(name);
+				return ResponseEntity.status(HttpStatus.OK).body(this.customerService.findByName(name));
 				
 		}catch(NoSuchElementException ex) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Customer not found");
@@ -132,7 +133,7 @@ public class StartApplication {
 	@RequestMapping(value = "/customer/find/id", method = RequestMethod.GET)
 	public Object findCustomerById(@RequestParam(name = "id", required = true) Long id) {			
 		try {
-				return this.customerService.findById(id);
+				return ResponseEntity.status(HttpStatus.OK).body(this.customerService.findById(id));
 				
 		}catch(NoSuchElementException ex) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Customer not found");
