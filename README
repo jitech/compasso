@@ -1,0 +1,25 @@
+JSONs
+>> Para criação de City
+{
+	"name": "São Paulo",
+	"uf": "SP" 
+}
+
+>> Para criação de Customer
+{
+	"name": "São Paulo",
+	"gender": "M",
+	"dateOfBirth": "1988-12-19",
+	"age": 31,
+	"city": 1
+}
+
+>> Para atualização de Customer
+{
+	"name": "São Paulo",
+	"gender": "M",
+	"dateOfBirth": "1988-12-19",
+	"age": 31,
+	"city": 1,
+	"id": 2
+}
