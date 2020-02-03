@@ -2,6 +2,8 @@ package br.com.compasso.restcontroller;
 
 import java.util.NoSuchElementException;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -26,8 +28,7 @@ import br.com.compasso.response.Message;
 import br.com.compasso.service.CityService;
 import br.com.compasso.service.CustomerService;
 /**
- * @author esc_jmelo
- * Serviços criados na mesma classe apenas para demonstração
+ * @author Jonas Guolart
  * */
 @RestController
 @RequestMapping("/api/")
@@ -54,7 +55,7 @@ public class StartApplication {
 	
 	/* City CRUD */
 	@RequestMapping(value = "/city/save", method = RequestMethod.PUT)
-	public Object saveCity(@RequestBody(required = true) CityRequest cityRequest) {		
+	public Object saveCity(@Valid @RequestBody(required = true) CityRequest cityRequest) {		
 		try {
 				return this.cityService.save(new City(cityRequest.getName(), cityRequest.getUf()));
 				
@@ -92,7 +93,7 @@ public class StartApplication {
 	
 	/* Customer CRUD */
 	@RequestMapping(value = "/customer/save", method = RequestMethod.PUT)
-	public Object saveCustomer(@RequestBody(required = true) CustomerRequest customerRequest) {		
+	public Object saveCustomer(@Valid @RequestBody(required = true) CustomerRequest customerRequest) {		
 		try {
 			return this.customerService.save(new Customer(customerRequest.getName(),
 					GenderEnum.valueOf(customerRequest.getGender()), customerRequest.getDateOfBirth(),

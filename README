@@ -1,4 +1,14 @@
-JSONs
+Considerações:
+
+1. Poderia considerar Ufs como uma nova tabela ou Enum, mas considerei como um campo da tabela City.
+2. Há mais fluxos para teste. Considerei apenas os fluxos principais.
+3. Os serviços foram criados na mesma classe apenas para demonstração, sendo a maneira correta em RestControllers diferentes.
+ para manter o código coesa.
+
+
+
+JSONs de exemplo para teste:
+
 >> Para criação de City
 {
 	"name": "São Paulo",
