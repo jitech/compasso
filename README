@@ -4,7 +4,7 @@ Considerações:
 2. Há mais fluxos para teste. Considerei apenas os fluxos principais.
 3. Os serviços foram criados na mesma classe apenas para demonstração, sendo a maneira correta em RestControllers diferentes.
  para manter o código coesa.
-
+4. Adicionei o Swagger
 
 
 JSONs de exemplo para teste:

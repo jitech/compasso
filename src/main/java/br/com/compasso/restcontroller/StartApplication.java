@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.http.HttpStatus;
@@ -27,9 +29,17 @@ import br.com.compasso.request.CustomerRequest;
 import br.com.compasso.response.Message;
 import br.com.compasso.service.CityService;
 import br.com.compasso.service.CustomerService;
+import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 /**
  * @author Jonas Guolart
  * */
+
+@Configuration
+@EnableSwagger2
 @RestController
 @RequestMapping("/api/")
 @SpringBootApplication
@@ -150,4 +160,13 @@ public class StartApplication {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("An error occurred while processing");
 		}
 	}
+	
+	@Bean
+    public Docket api() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .select()
+                .apis(RequestHandlerSelectors.any())
+                .paths(PathSelectors.any())            
+                .build();
+    }
 }
