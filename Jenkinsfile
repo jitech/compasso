@@ -1,9 +1,14 @@
 pipeline {
-    agent { docker { image 'maven:3.3.3' } }
+    agent any
     stages {
-        stage('build') {
-            steps {
-                sh 'mvn --version'
+        stage('STAGE 00'){
+            steps{
+                echo "Pipeline Usando Jenkinsfile"
+            }
+        }
+        stage('STAGE 01'){
+            steps{
+                echo "Pipeline Usando Jenkinsfile"
             }
         }
     }
